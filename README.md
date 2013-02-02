@@ -17,29 +17,32 @@ Next, create your own Heroku application using CL Buildpack:
 
     heroku create -s cedar --buildpack http://github.com/jsmpereira/heroku-buildpack-cl.git
 
-Install http://devcenter.heroku.com/articles/labs-user-env-compile to have config vars available at build time.
+```shell
+# Enable config vars at build time http://devcenter.heroku.com/articles/labs-user-env-compile 
+heroku labs:enable user-env-compile -a myapp
 
-You can choose implementation via:
-```heroku config:add CL_IMPL=sbcl```
-or
-```heroku config:add CL_IMPL=ccl```
+# Choose implementation:
+heroku config:add CL_IMPL=sbcl
+# or
+heroku config:add CL_IMPL=ccl
 
-Choose webserver via:
-```heroku config:add CL_WEBSERVER=hunchentoot```
-or
-```heroku config:add CL_WEBSERVER=aserve```
+# Choose Web Server:
+heroku config:add CL_WEBSERVER=hunchentoot
+# or 
+heroku config:add CL_WEBSERVER=aserve
 
-To avoid trouble with SBCL source encoding use: ```heroku config:add LANG=en_US.UTF-8```
+# Avoid trouble with SBCL source encoding
+heroku config:add LANG=en_US.UTF-8
 
-And deploy:
-
-    git push heroku branch
-
-Where you should replace *branch* with the branch of your choice. There are currently 2 branches. *Master* has Huchentoot specific code and *aserve* has AllegroServe specific code.
+# deploy 
+git push heroku master
+```
 
 That's it! Use `heroku open` to view your app in your browser!
 
 ## More details:
+
+There are currently 2 branches. *Master* has Huchentoot specific code and *aserve* has AllegroServe specific code.
 
 Currently https://github.com/jsmpereira/heroku-buildpack-cl let's you run Hunchentoot with SBCL and CCL and AllegroServe(portableaserve) with CCL.
 
