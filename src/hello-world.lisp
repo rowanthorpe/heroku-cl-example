@@ -34,7 +34,7 @@ TODO: cleanup code."
        (:li (format s "~A ~A" (lisp-implementation-type) (lisp-implementation-version)))
        (:li (format s "Hunchentoot ~A" hunchentoot::*hunchentoot-version*))
        (:li (format s "CL-WHO"))
-       (:li (format s "and bananas")))
+       (:li (format s "and turnips")))
       (:div
        (:a :href "static/lisp-glossy.jpg" (:img :src "static/lisp-glossy.jpg" :width 100)))
       (:div
